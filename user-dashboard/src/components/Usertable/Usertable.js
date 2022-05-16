@@ -29,7 +29,6 @@ const Usertable = () => {
   const [page, setPage] = useState(0);
   const { isLoggedIn } = useSelector((state) => state.auth);
   const users = useSelector((state) => state.users);
-  console.log(users);
   const [userState, setUserState] = useState([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();

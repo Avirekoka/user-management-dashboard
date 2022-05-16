@@ -16,12 +16,19 @@ const Updateuser = ({ open, setOpen, userId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const [userDetails, setUserDetails] = useState({
-    name: "",
-    job: "",
+    id: userId,
+    first_name: "",
+    last_name: "",
+    email: "",
   });
 
   useEffect(() => {
-    setUserDetails({ name: user.first_name, job: "" });
+    setUserDetails({
+      id: userId,
+      first_name: user.first_name,
+      last_name: user.last_name,
+      email: user.email,
+    });
   }, [user]);
 
   const handleUpdate = (e) => {
@@ -42,23 +49,34 @@ const Updateuser = ({ open, setOpen, userId }) => {
             className={classes.form}
           >
             <TextField
-              name="name"
+              name="first_name"
               variant="outlined"
-              label="User Name"
+              label="First Name"
               fullWidth
-              value={userDetails.name}
+              value={userDetails.first_name}
               onChange={(e) =>
-                setUserDetails({ ...userDetails, name: e.target.value })
+                setUserDetails({ ...userDetails, first_name: e.target.value })
               }
             />
             <TextField
-              name="job"
+              name="last_lame"
               variant="outlined"
-              label="Job"
+              label="last_name"
               fullWidth
-              value={userDetails.job}
+              value={userDetails.last_name}
               onChange={(e) =>
-                setUserDetails({ ...userDetails, job: e.target.value })
+                setUserDetails({ ...userDetails, last_name: e.target.value })
+              }
+            />
+            <TextField
+              name="email"
+              variant="outlined"
+              label="Email"
+              fullWidth
+              type="email"
+              value={userDetails.email}
+              onChange={(e) =>
+                setUserDetails({ ...userDetails, email: e.target.value })
               }
             />
             <Button

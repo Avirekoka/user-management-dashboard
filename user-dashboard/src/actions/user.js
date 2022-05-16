@@ -34,6 +34,7 @@ export const deleteUser = (id) => async (dispatch) => {
 
 export const updateUser = (id, userDetails) => async (dispatch) => {
   try {
+    console.log(id);
     const { data } = await api.updateUser(id, userDetails);
     dispatch({ type: UPDATE, payload: data });
     toast.success("User updated");
