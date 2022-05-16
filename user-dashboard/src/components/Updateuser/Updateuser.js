@@ -16,7 +16,7 @@ const Updateuser = ({ open, setOpen, userId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const [userDetails, setUserDetails] = useState({
-    id: userId,
+    id: "",
     first_name: "",
     last_name: "",
     email: "",
@@ -53,6 +53,7 @@ const Updateuser = ({ open, setOpen, userId }) => {
               variant="outlined"
               label="First Name"
               fullWidth
+              required
               value={userDetails.first_name}
               onChange={(e) =>
                 setUserDetails({ ...userDetails, first_name: e.target.value })
@@ -63,6 +64,7 @@ const Updateuser = ({ open, setOpen, userId }) => {
               variant="outlined"
               label="last_name"
               fullWidth
+              required
               value={userDetails.last_name}
               onChange={(e) =>
                 setUserDetails({ ...userDetails, last_name: e.target.value })
@@ -74,6 +76,7 @@ const Updateuser = ({ open, setOpen, userId }) => {
               label="Email"
               fullWidth
               type="email"
+              required
               value={userDetails.email}
               onChange={(e) =>
                 setUserDetails({ ...userDetails, email: e.target.value })
